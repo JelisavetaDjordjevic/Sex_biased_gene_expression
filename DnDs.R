@@ -9,7 +9,7 @@ getwd()
 
 ##### ********Import TABLE WITH CPM calculated and dnds ******** #####
 ### this table contains dnds and mean(CPM) values for males and females and overal
-all_stages<-read.delim("all_stages_dnds", 
+all_stages<-read.delim("all_stages_dnds.txt", 
                        header = TRUE, 
                        sep = "\t", 
                        quote = "\"", 
