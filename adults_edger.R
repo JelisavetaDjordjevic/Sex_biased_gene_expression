@@ -7,7 +7,7 @@ library(ggplot2)
 getwd()
 
 #with tcm genome v8
-tcm_genome <- read.csv("https://github.com/JelisavetaDjordjevic/Sex_biased_gene_expression/main/timema_counts.csv")
+tcm_genome <- read.csv("https://github.com/JelisavetaDjordjevic/Sex_biased_gene_expression/tree/main/Data/timema_counts.csv")
 colnames(tcm_genome)
 
 sex<- c("F","M","M","F","M","F","M","M","M","M","M",
