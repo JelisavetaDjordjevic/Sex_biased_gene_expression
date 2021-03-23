@@ -11,7 +11,7 @@ Contains
 
 SCRIPTS 
 
-Get sex-biased genes and classify them genes into sex-bias categories 
+Get sex-biased genes and classify them into categories
 1. At the hatchling stage- 
    hatclings_edger.R 
    
