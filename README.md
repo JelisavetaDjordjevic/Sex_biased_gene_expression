@@ -6,8 +6,8 @@ https://doi.org/10.1101/2021.01.23.427895
 DATA
 
 Contains 
-1. Timema read counts 
-2. dN/dS estimates 
+1. Timema read counts- timema_counts.csv
+2. dN/dS estimates- all_stages_dnds.txt
 
 SCRIPTS 
 
