@@ -3,13 +3,13 @@
 Repository for the collected scripts used in study: 
 https://doi.org/10.1101/2021.01.23.427895 
 
-DATA
+*DATA*
 
 Contains 
 1. Timema read counts- timema_counts.csv
 2. dN/dS estimates- all_stages_dnds.txt
 
-SCRIPTS 
+*SCRIPTS* 
 
 Get sex-biased genes and classify genes into categories
 1. At the hatchling stage- 
