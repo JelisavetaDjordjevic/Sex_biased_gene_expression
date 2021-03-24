@@ -22,8 +22,10 @@ Get sex-biased genes and classify genes into categories
    adults_edger.R
 
 To plot dNdS values for different sex- bias gene categories and to statistically compare between gene categories groups
+
 4.  DnDs.R
 
 To calculate stage specificity of gene expression (Tau index) for sex-bias categories, and statistics to compare tau values between sex-bias gene categories
+
 5. tau_calculation.R
 
