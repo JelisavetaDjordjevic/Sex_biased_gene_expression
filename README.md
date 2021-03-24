@@ -18,5 +18,10 @@ Get sex-biased genes and classify them into categories
 2. At the juvenile stage
    juveniles_edger.R
    
-4. At the adult stage- 
+3. At the adult stage- 
    adults_edger.R
+
+To plot dNdS values for different sex- bias gene categories and to statistically compare between gene categories groups
+4.  DnDs.R
+
+
