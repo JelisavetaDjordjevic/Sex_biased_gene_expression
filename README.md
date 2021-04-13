@@ -6,10 +6,13 @@ https://doi.org/10.1101/2021.01.23.427895
 *DATA*
 
 Contains 
-1. Timema read counts- **timema_counts.csv**
+1. Timema californicum read counts- **timema_counts.csv**
 2. dN/dS estimates- **all_stages_dnds.txt**
+3. Drosophila melanogaster read counts- **droso_counts.csv**
 
 *SCRIPTS* 
+
+*To analyze Timema data*
 
 Get sex-biased genes and classify genes into categories
 1. At the hatchling stage- 
@@ -29,3 +32,13 @@ To calculate stage specificity of gene expression (Tau index) for sex-bias categ
 
 5. **tau_calculation.R**
 
+*To analyze Drosophila data*
+
+1. 1. At the larval stage- 
+   **larva_edger.R** 
+   
+2. At the juvenile stage
+   **pupa_edger.R**
+   
+3. At the adult stage- 
+   **adult_droso_edger.R**
