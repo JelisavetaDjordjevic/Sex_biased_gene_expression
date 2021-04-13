@@ -4,6 +4,7 @@ library(edgeR)
 library(ggplot2)
 library(ppcor)
 library(RColorBrewer)
+library(ggpubr)
 
 getwd()
 
@@ -20,20 +21,10 @@ all_stages<-read.delim("all_stages_dnds.txt",
 all_stages$stage <- factor(all_stages$stage,
                            levels = c('hatch','juv','adu'),ordered = TRUE)
 
-###run this if you want to get genes thatt are under positive selection
-all_stages$selection <- rep("NA", nrow(all_stages))
-all_stages$selection <- sub_a_pos$sel_tcm[match(all_stages$genes,sub_a_pos$genes)]
-all_stages$selection_tcm_tsi <- rep("NA", nrow(all_stages))
-all_stages$selection_tcm_tsi <- sub_a_pos$sel_tcm_tsi[match(all_stages$genes,sub_a_pos$genes)]
-
-summary(all_stages$dnds)
-
 ### Filtering genes with very high dNdS, setting up the treshhold to 10
 sub<-subset(all_stages, dnds<10)
 summary(sub$dnds)
 hist(sub$dnds, breaks = 300)
-#not normal distribution of dnds
-shapiro.test(sub$dnds[0:5000])
 
 #boxplot- dnds at 3 stages 
 #First classify genes in broader categories, female-biased/male-biased/un-biased)
@@ -59,12 +50,15 @@ p
 #group by "stage"
 #wilcoxon test
 
-test<-compare_means(dnds ~ fact, group.by="stage", data = sub, p.adjust.method = "BH")
+test<-compare_means(dnds ~ fact, 
+                    group.by="stage", 
+                    data = sub, 
+                    p.adjust.method = "BH")
 
 ###### Test correlation beetwen dnds and logfc
 #### subset per stage and sex-bias 
 
-###*adult male biased*
+### *adult male biased*
 ###!!!! Split the genes <0 logFC (like this we subset as well un-biased genes!)
 sub_adu_m<-subset(all_stages, dnds<10 & stage=="adu")
 
@@ -75,7 +69,7 @@ sub_adu_m<- sub_adu_m[sub_adu_m$fact=="Any_m_biased"|
 sub_adu_m$abslogFC<- abs(sub_adu_m$logFC)
 levels(as.factor(sub_adu_m$fact))
 
-#plot
+#plot male biased genes- adult stage
 color<-palette(c("slategray1","lightslateblue","navy","gainsboro"))
 sub_adu_m$fact<-as.factor(sub_adu_m$fact)
 unbias<-subset(sub_adu_m, fact == "Not DE")
@@ -127,29 +121,32 @@ points(bias$dnds~bias$abslogFC,
        pch=19, 
        cex=0.9)
 
-
 #subset data for columns for test (absfc, average exp, average expr in males, dnds)
 sub_fa<- sub_adu_f[,c(6,7,8,10)]
 pcor(sub_fa, method = c("spearman"))
 
-## *juvenile male and female biased*
+## *Juvenile male and female biased*
 ###female biased 
 sub_juv_f<-subset(all_stages, dnds<10 & stage=="juv")
 #without NotDE
-sub_juv_f<- sub_juv_f[sub_juv_f$fact=="Any_f_biased"|sub_juv_f$fact=="F_biased"| sub_juv_f$fact=="F_limited",]
+sub_juv_f<- sub_juv_f[sub_juv_f$fact=="Any_f_biased"|
+                        sub_juv_f$fact=="F_biased"| 
+                        sub_juv_f$fact=="F_limited",]
 sub_juv_f$abslogFC<- abs(sub_juv_f$logFC)
 
 ##male biased
 sub_juv_m<-subset(all_stages, dnds<10 & stage=="juv")
 
-#without Not DE
-sub_juv_m<- sub_juv_m[sub_juv_m$fact=="Any_m_biased"|sub_juv_m$fact=="M_biased"| sub_juv_m$fact=="M_limited",]
+#without Not DE 
+sub_juv_m<- sub_juv_m[sub_juv_m$fact=="Any_m_biased"|
+                        sub_juv_m$fact=="M_biased"| 
+                        sub_juv_m$fact=="M_limited",]
 sub_juv_m$abslogFC<- abs(sub_juv_m$logFC)
 
 levels(as.factor(sub_juv_f$fact))
 levels(as.factor(sub_juv_m$fact))
 
-#plot
+#plot - female biased- juvenile stage
 color<-palette(c("palevioletred1","firebrick1","gainsboro"))
 sub_juv_f$fact<-as.factor(sub_juv_f$fact)
 unbias<-subset(sub_juv_f, fact == "Not DE")
@@ -168,7 +165,7 @@ points(bias$dnds~bias$abslogFC,
        cex=0.9)
 
 
-#plot male-b
+#plot male-biased - Juvenile stage
 color<-palette(c("slategray1","lightslateblue","navy","gainsboro"))
 sub_juv_m$fact<-as.factor(sub_juv_m$fact)
 unbias<-subset(sub_juv_m, fact == "Not DE")
@@ -196,7 +193,7 @@ sub_fj<- sub_juv_f[,c(6,7,8,10)]
 pcor(sub_fj, method = c("spearman"))
 
 
-#### hatchling female biased 
+#### *Hatchling female biased* 
 sub_hatch_f<-subset(all_stages, dnds<10 & stage=="hatch")
 #without notDE
 sub_hatch_f<- sub_hatch_f[sub_hatch_f$fact=="Any_f_biased"|sub_hatch_f$fact=="F_biased"| sub_hatch_f$fact=="F_limited",]
