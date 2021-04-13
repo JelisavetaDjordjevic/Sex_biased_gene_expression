@@ -34,7 +34,7 @@ To calculate stage specificity of gene expression (Tau index) for sex-bias categ
 
 *To analyze Drosophila data*
 
-1. 1. At the larval stage- 
+1. At the larval stage- 
    **larva_edger.R** 
    
 2. At the juvenile stage
