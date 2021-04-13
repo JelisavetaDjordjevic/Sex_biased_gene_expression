@@ -35,10 +35,10 @@ To calculate stage specificity of gene expression (Tau index) for sex-bias categ
 *To analyze Drosophila data*
 
 1. At the larval stage- 
-   **larva_edger.R** 
+   **droso_larva_edger.R** 
    
 2. At the juvenile stage
-   **pupa_edger.R**
+   **droso_pupa_edger.R**
    
 3. At the adult stage- 
-   **adult_droso_edger.R**
+   **droso_adult_edger.R**
