@@ -34,6 +34,7 @@ To calculate stage specificity of gene expression (Tau index) for sex-bias categ
 
 *To analyze Drosophila data*
 
+Get sex-biased genes and classify genes into categories
 1. At the larval stage- 
    **droso_larva_edger.R** 
    
@@ -42,3 +43,7 @@ To calculate stage specificity of gene expression (Tau index) for sex-bias categ
    
 3. At the adult stage- 
    **droso_adult_edger.R**
+
+To get venn diagram plot of three developemental stages, and to statistically test the intersection
+
+4. **droso_venn_diagram.R**
