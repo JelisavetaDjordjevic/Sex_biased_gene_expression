@@ -132,12 +132,12 @@ colnames(adu_top_fm)[2]<- "Average_CPM_M"
 
 #gene classification#
 adu_top_fm$fact<-rep("NA", nrow(adu_top_fm))
-adu_top_fm$fact[adu_top_fm$Average_CPM_M ==(0) & adu_top_fm$logFC>2] <- "F_limited"
-adu_top_fm$fact[adu_top_fm$Average_CPM_F ==(0) & adu_top_fm$logFC< (-2)] <- "M_limited"
-adu_top_fm$fact[adu_top_fm$logFC>2 & adu_top_fm$Average_CPM_M > (0)] <- "F_biased"
-adu_top_fm$fact[adu_top_fm$logFC<(-2) & adu_top_fm$Average_CPM_F > (0)]<- "M_biased"
-adu_top_fm$fact[adu_top_fm$logFC>0 & adu_top_fm$logFC<2]<- "Any_f_biased"
-adu_top_fm$fact[adu_top_fm$logFC<0 & adu_top_fm$logFC>-2]<- "Any_m_biased"
+adu_top_fm$fact[adu_top_fm$Average_CPM_M ==(0) & adu_top_fm$logFC>1] <- "F_limited"
+adu_top_fm$fact[adu_top_fm$Average_CPM_F ==(0) & adu_top_fm$logFC< (-1)] <- "M_limited"
+adu_top_fm$fact[adu_top_fm$logFC>1 & adu_top_fm$Average_CPM_M > (0)] <- "F_biased"
+adu_top_fm$fact[adu_top_fm$logFC<(-1) & adu_top_fm$Average_CPM_F > (0)]<- "M_biased"
+adu_top_fm$fact[adu_top_fm$logFC>0 & adu_top_fm$logFC<1]<- "Any_f_biased"
+adu_top_fm$fact[adu_top_fm$logFC<0 & adu_top_fm$logFC>-1]<- "Any_m_biased"
 adu_top_fm$fact[adu_top_fm$FDR >0.05]<- "Not DE"
 
 ####### plot

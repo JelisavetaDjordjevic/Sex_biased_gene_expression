@@ -18,7 +18,7 @@ Get sex-biased genes and classify genes into categories
 1. At the hatchling stage- 
    **hatclings_edger.R** 
    
-2. At the juvenile stage
+2. At the juvenile stage-
    **juveniles_edger.R**
    
 3. At the adult stage- 

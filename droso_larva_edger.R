@@ -178,12 +178,12 @@ larvae_top_fm$fact<-rep("NA", nrow(larvae_top_fm))
 
 #gene classification#
 larvae_top_fm$fact<-rep("NA", nrow(larvae_top_fm))
-larvae_top_fm$fact[larvae_top_fm$Average_CPM_M ==(0) & larvae_top_fm$logFC>2] <- "F_limited"
-larvae_top_fm$fact[larvae_top_fm$Average_CPM_F ==(0) & larvae_top_fm$logFC< (-2)] <- "M_limited"
-larvae_top_fm$fact[larvae_top_fm$logFC>2 & larvae_top_fm$Average_CPM_M > (0)] <- "F_biased"
-larvae_top_fm$fact[larvae_top_fm$logFC<(-2) & larvae_top_fm$Average_CPM_F > (0)]<- "M_biased"
-larvae_top_fm$fact[larvae_top_fm$logFC>0 & larvae_top_fm$logFC<2]<- "Any_f_biased"
-larvae_top_fm$fact[larvae_top_fm$logFC<0 & larvae_top_fm$logFC>-2]<- "Any_m_biased"
+larvae_top_fm$fact[larvae_top_fm$Average_CPM_M ==(0) & larvae_top_fm$logFC>1] <- "F_limited"
+larvae_top_fm$fact[larvae_top_fm$Average_CPM_F ==(0) & larvae_top_fm$logFC< (-1)] <- "M_limited"
+larvae_top_fm$fact[larvae_top_fm$logFC>1 & larvae_top_fm$Average_CPM_M > (0)] <- "F_biased"
+larvae_top_fm$fact[larvae_top_fm$logFC<(-1) & larvae_top_fm$Average_CPM_F > (0)]<- "M_biased"
+larvae_top_fm$fact[larvae_top_fm$logFC>0 & larvae_top_fm$logFC<1]<- "Any_f_biased"
+larvae_top_fm$fact[larvae_top_fm$logFC<0 & larvae_top_fm$logFC>-1]<- "Any_m_biased"
 larvae_top_fm$fact[larvae_top_fm$FDR >0.05]<- "Not DE"
 
 ####### plot

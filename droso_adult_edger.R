@@ -179,12 +179,12 @@ adult_top_fm$fact<-rep("NA", nrow(adult_top_fm))
 
 #gene classification#
 adult_top_fm$fact<-rep("NA", nrow(adult_top_fm))
-adult_top_fm$fact[adult_top_fm$Average_CPM_M ==(0) & adult_top_fm$logFC>2] <- "F_limited"
-adult_top_fm$fact[adult_top_fm$Average_CPM_F ==(0) & adult_top_fm$logFC< (-2)] <- "M_limited"
-adult_top_fm$fact[adult_top_fm$logFC>2 & adult_top_fm$Average_CPM_M > (0)] <- "F_biased"
-adult_top_fm$fact[adult_top_fm$logFC<(-2) & adult_top_fm$Average_CPM_F > (0)]<- "M_biased"
-adult_top_fm$fact[adult_top_fm$logFC>0 & adult_top_fm$logFC<2]<- "Any_f_biased"
-adult_top_fm$fact[adult_top_fm$logFC<0 & adult_top_fm$logFC>-2]<- "Any_m_biased"
+adult_top_fm$fact[adult_top_fm$Average_CPM_M ==(0) & adult_top_fm$logFC>1] <- "F_limited"
+adult_top_fm$fact[adult_top_fm$Average_CPM_F ==(0) & adult_top_fm$logFC< (-1)] <- "M_limited"
+adult_top_fm$fact[adult_top_fm$logFC>1 & adult_top_fm$Average_CPM_M > (0)] <- "F_biased"
+adult_top_fm$fact[adult_top_fm$logFC<(-1) & adult_top_fm$Average_CPM_F > (0)]<- "M_biased"
+adult_top_fm$fact[adult_top_fm$logFC>0 & adult_top_fm$logFC<1]<- "Any_f_biased"
+adult_top_fm$fact[adult_top_fm$logFC<0 & adult_top_fm$logFC>-1]<- "Any_m_biased"
 adult_top_fm$fact[adult_top_fm$FDR >0.05]<- "Not DE"
 
 ####### plot
