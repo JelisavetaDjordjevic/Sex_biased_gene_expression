@@ -9,28 +9,37 @@ Contains
 1. Timema californicum read counts- **timema_counts.csv**
 2. dN/dS estimates- **all_stages_dnds.txt**
 3. Drosophila melanogaster read counts- **droso_counts.csv**
+4. Accession numbers of Timema californicum reads reads- **reads_accession_numbers.txt**
 
 *SCRIPTS* 
+
+*Quality control of the reads (removing adapters, trimming),
+mapping reads to the genome and counting the reads per gene*
+
+1. **QC_mapping_counting.sh**
 
 *To analyze Timema data*
 
 Get sex-biased genes and classify genes into categories
-1. At the hatchling stage- 
+2. At the hatchling stage- 
    **hatclings_edger.R** 
    
-2. At the juvenile stage-
+3. At the juvenile stage-
    **juveniles_edger.R**
    
-3. At the adult stage- 
+4. At the adult stage- 
    **adults_edger.R**
+
+To make a heatmap of sex-biased genes
+5. **heatmap_timema.R**
 
 To plot dNdS values for different sex- bias gene categories and to statistically compare between gene categories groups
 
-4.  **DnDs.R**
+6.  **DnDs.R**
 
 To calculate stage specificity of gene expression (Tau index) for sex-bias categories, and statistics to compare tau values between sex-bias gene categories
 
-5. **tau_calculation.R**
+7. **tau_calculation.R**
 
 *To analyze Drosophila data*
 
